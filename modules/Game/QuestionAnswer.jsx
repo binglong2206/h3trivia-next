@@ -1,6 +1,10 @@
 import React from "react";
+import { useGameStore } from "../../state/useStore";
 
-export default function QuestionAnswer({ guessed, question }) {
+export default function QuestionAnswer() {
+  const guessed = useGameStore((state) => state.guessed);
+  const question = useGameStore((state) => state.question);
+
   const displayQuestion = () => {
     return <div>{question.text}</div>;
   };

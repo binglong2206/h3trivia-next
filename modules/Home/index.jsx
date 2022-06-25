@@ -5,7 +5,7 @@ import {
   addNewPlayer,
   addAnswerToFirebase,
   addScoreToFirebase,
-} from "../../apis/patchFirebase";
+} from "../../service/useFirebase";
 import questions from "../../data/questionData";
 import { getQuestionChoices } from "../../helper/gameHelper";
 

@@ -1,11 +1,10 @@
 import React from "react";
+import { useGameStore } from "../../state/useStore";
 
-export default function MultipleChoice({
-  choices,
-  guessed,
-  checkAnswer,
-  nextArrow,
-}) {
+export default function MultipleChoice({ checkAnswer, nextArrow }) {
+  const choices = useGameStore((state) => state.choices);
+  const guessed = useGameStore((state) => state.guessed);
+
   return (
     <div className="mc-container">
       <div>

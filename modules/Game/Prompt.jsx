@@ -1,29 +1,23 @@
-import React from 'react';
+import React from "react";
+import { useGameStore } from "../../state/useStore";
 
+export default function Prompt({}) {
+  const zguessed = useGameStore((state) => state.guessed);
+  const zcorrect = useGameStore((state) => state.correct);
 
+  const displayPrompt = () => {
+    console.log("promptwokring");
+    if (!zguessed) return "Question";
+    if (zguessed && !zcorrect) return "WRONG";
+    if (zguessed && zcorrect) return "CORRECT";
+  };
 
-export default function Prompt ({guessed, correct}) {
-  
-  const displayPrompt=()=> {
-    if (!guessed) return "Question";
-    if (guessed && !correct) return "WRONG"
-    if (guessed && correct) return "CORRECT"
-  }
-
-   return (
-        <>
-        <h2 id="game-prompt">{displayPrompt()}</h2>
-        </>
-      );
+  return (
+    <>
+      <h2 id="game-prompt">{displayPrompt()}</h2>
+    </>
+  );
 }
-
-
-
-
-
-
-
-
 
 // export class Prompt extends React.Component {
 //   constructor(props) {
@@ -35,7 +29,6 @@ export default function Prompt ({guessed, correct}) {
 //           prompt: "Who made this tweet?"
 //       }
 //   }
-
 
 //   componentDidUpdate() {
 //       if (!this.props.guessed && this.state.prompt != this.prompt1) {

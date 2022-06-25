@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import { Box } from "@chakra-ui/react";
 import { useGameStore } from "../state/useStore";
