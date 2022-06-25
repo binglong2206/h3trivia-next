@@ -2,14 +2,14 @@ import React from "react";
 import { useGameStore } from "../../state/useStore";
 
 export default function Prompt({}) {
-  const zguessed = useGameStore((state) => state.guessed);
-  const zcorrect = useGameStore((state) => state.correct);
+  const guessed = useGameStore((state) => state.guessed);
+  const correct = useGameStore((state) => state.correct);
 
   const displayPrompt = () => {
     console.log("promptwokring");
-    if (!zguessed) return "Question";
-    if (zguessed && !zcorrect) return "WRONG";
-    if (zguessed && zcorrect) return "CORRECT";
+    if (!guessed) return "Question";
+    if (guessed && !correct) return "WRONG";
+    if (guessed && correct) return "CORRECT";
   };
 
   return (
