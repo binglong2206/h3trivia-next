@@ -1,0 +1,939 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;900&display=swap");
+
+*:not(.twitter-tweet) {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  /* background: linear-gradient(-45deg, #ff41a9, #6441a5, #1da1f2, #007f88); */
+  /* background-size: 400% 400%; */
+  /* animation: gradient 15s ease infinite; */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  /* text-align: center;
+  transition: 0.5s ease; */
+}
+
+#root {
+  height: 100% !important;
+}
+
+.mainBG {
+  /* background: linear-gradient(#2d16e6, #c417f1); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./img/gradientBackground.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  /* filter: blur(5px);
+  -webkit-filter: blur(5px);
+  transform: scale(1.1); */
+}
+
+.textGradient {
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 30% 50%;
+  }
+  50% {
+    background-position: 70% 50%;
+  }
+  100% {
+    background-position: 30% 50%;
+  }
+}
+
+#container {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+#version {
+  position: fixed;
+  top: 8px;
+  right: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+h1,
+h2,
+h3 {
+  color: white;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 16pt;
+}
+
+#logo {
+  margin-top: 6vh;
+  width: 500px;
+  height: auto;
+}
+
+#landing {
+  display: inline-block;
+  width: 440px;
+}
+
+#gameOver {
+  margin: 10vh auto 0 auto;
+  display: block;
+  width: 440px;
+}
+
+.cta-primary {
+  display: inline-block;
+  width: 160px;
+  height: 40px;
+  line-height: 40px;
+  padding: 4px 0px;
+  border: white solid 2px;
+  color: white;
+  border-radius: 80px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  mix-blend-mode: normal;
+  font-size: 16pt;
+  font-weight: 700;
+  margin-top: 24px;
+}
+
+.cta-primary:hover {
+  background-color: white !important;
+  color: #1da1f2;
+}
+
+#game-prompt {
+  margin-top: 12vh;
+}
+
+.tweet-card {
+  line-height: normal;
+  width: 90%;
+  max-width: 600px;
+  background-color: white !important;
+  border-radius: 10px;
+  border: rgb(207, 217, 222) solid 2px;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s ease;
+}
+
+.tweet-fake h2 {
+  position: relative;
+  color: black;
+  font-size: 14pt;
+  line-height: 14pt;
+  font-weight: 700;
+  top: 10px;
+}
+
+.tweet-fake h3 {
+  color: gray;
+  font-size: 11pt;
+  font-weight: 500;
+}
+
+.tweet-fake-icon {
+  position: relative;
+  top: 12px;
+  left: 0px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.icon-placeholder {
+  background-color: rgb(207, 217, 222) !important;
+}
+
+.tweet-container {
+  display: block;
+  text-align: left;
+  margin: 0 24px;
+}
+
+.pfp-hidden,
+.handle-hidden {
+  background-color: rgb(207, 217, 222) !important;
+}
+
+.pfp-hidden {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  margin-top: 18px;
+  border-radius: 50%;
+}
+
+.handle-container {
+  display: inline-block;
+  margin: 0 0 4px 18px;
+}
+
+.handle-hidden {
+  display: block;
+  height: 14px;
+  width: 200px;
+}
+
+.handle-hidden:last-of-type {
+  margin-top: 8px;
+}
+
+.tweet-text {
+  font-size: 16pt;
+}
+
+.tweet-datetime {
+  color: rgb(83, 100, 113);
+}
+
+.mc-container {
+  width: 100%;
+  max-width: 680px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.mc-row {
+  display: inline-block;
+}
+
+.choice {
+  display: inline-block;
+  width: 280px;
+  height: 40px;
+  line-height: 40px;
+  padding: 4px 0px;
+  border-radius: 80px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  mix-blend-mode: normal;
+  font-size: 16pt;
+  font-weight: 700;
+  margin: 12px 24px;
+}
+
+.choice:hover {
+  background-color: orange;
+}
+
+.choice-default {
+  color: #1da1f2;
+  background-color: white !important;
+}
+
+.choice-default:hover {
+  background-color: #1da1f2 !important;
+  color: white;
+}
+
+.choice-default:active {
+  background-color: #128ad4 !important;
+}
+
+.choice-wrong {
+  background-color: #c40000 !important;
+  color: white;
+}
+
+.choice-correct {
+  background-color: #00a743 !important;
+  color: white;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+#high-score,
+#score,
+#stats-prompt {
+  position: fixed;
+  color: white;
+  font-size: 16pt;
+}
+
+#score {
+  font-size: 24pt;
+  font-weight: 900;
+  bottom: 40px;
+  right: 60px;
+}
+
+#high-score {
+  top: 16px;
+  left: 24px;
+  font-weight: 700;
+  font-size: 16pt;
+}
+
+#stats-prompt {
+  top: 48px;
+  left: 24px;
+  font-weight: 700;
+  font-size: 16pt;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#stats-prompt:hover {
+  color: #1da1f2;
+}
+
+#stats-container {
+  position: fixed;
+  text-align: left;
+  color: white;
+  left: 24px;
+  font-weight: 700;
+  font-size: 16pt;
+  line-height: 24pt;
+}
+
+.stats-left {
+  display: inline-block;
+  text-align: left;
+}
+
+.stats-right {
+  display: inline-block;
+  text-align: right;
+}
+
+#score-mobile {
+  display: none;
+}
+
+#tweet-placeholder {
+  overflow: hidden;
+  height: 320px;
+  line-height: 320px;
+  position: relative;
+}
+
+.hide-visibility {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hide-display {
+  display: none;
+}
+
+.twitter-tweet-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 100%;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show-tweet {
+  pointer-events: all;
+  visibility: visible;
+  opacity: 1;
+}
+
+#gameOverScore {
+  -webkit-text-stroke: 2px white;
+  text-stroke: 2px white;
+  color: rgba(0, 0, 0, 0);
+  font-size: 60pt;
+  font-weight: 900;
+}
+
+#next-arrow {
+  position: absolute;
+  fill: white;
+  top: 40px;
+  right: -80px;
+  border-radius: 16px;
+  transition: 0.25s ease;
+}
+
+#next-arrow:hover {
+  cursor: pointer;
+  fill: #acdfff;
+}
+
+.emotes-wrapper {
+  width: 100%;
+}
+
+.emote {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.5));
+}
+
+.tooltip {
+  position: absolute;
+}
+
+.streamlink {
+  display: inline-block;
+}
+
+.tooltip1 {
+  top: 100px;
+  left: 60px;
+}
+.tooltip2 {
+  top: 325px;
+  left: 200px;
+}
+.tooltip3 {
+  top: 550px;
+  left: 80px;
+}
+.tooltip4 {
+  top: 100px;
+  right: 160px;
+}
+.tooltip5 {
+  top: 325px;
+  right: 300px;
+}
+.tooltip6 {
+  top: 550px;
+  right: 180px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: white !important;
+  color: black;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 0;
+
+  position: absolute;
+  bottom: 200%;
+  left: 50%;
+  z-index: 1;
+  margin-left: -10px;
+  margin-bottom: 6px;
+}
+
+.streamlink .streamtext {
+  visibility: hidden;
+  width: 120px;
+  background-color: white !important;
+  color: black;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 0;
+
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  margin-left: -60px;
+}
+
+.streamlink1 .streamtext,
+.streamlink3 .streamtext,
+.streamlink5 .streamtext,
+.streamlink7 .streamtext {
+  bottom: 100%;
+}
+.streamlink2 .streamtext,
+.streamlink4 .streamtext,
+.streamlink6 .streamtext,
+.streamlink8 .streamtext {
+  bottom: 10%;
+}
+
+.tooltip1:hover .tooltiptext1,
+.tooltip2:hover .tooltiptext2,
+.tooltip3:hover .tooltiptext3,
+.tooltip4:hover .tooltiptext4,
+.tooltip5:hover .tooltiptext5,
+.tooltip6:hover .tooltiptext6,
+.streamlink1:hover .streamtext1,
+.streamlink2:hover .streamtext2,
+.streamlink3:hover .streamtext3,
+.streamlink4:hover .streamtext4,
+.streamlink5:hover .streamtext5,
+.streamlink6:hover .streamtext6,
+.streamlink7:hover .streamtext7,
+.streamlink8:hover .streamtext8 {
+  visibility: visible;
+}
+
+.tooltiptext:before,
+.streamtext:before {
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0;
+  top: 30px;
+  left: 50px;
+  border: 8px solid transparent;
+  border-top-color: white;
+  z-index: 999;
+}
+
+.streamer {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin: 0;
+  transition: 0.35s ease;
+  filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.25));
+}
+
+.streamer:hover {
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+.streamer1,
+.streamer3,
+.streamer5,
+.streamer7 {
+  transform: translateY(0px);
+}
+
+.streamer2,
+.streamer4,
+.streamer6,
+.streamer8 {
+  transform: translateY(100px);
+  z-index: 999;
+}
+
+.streamer1:hover,
+.streamer3:hover,
+.streamer5:hover,
+.streamer7:hover {
+  transform: translateY(8px);
+}
+
+.streamer2:hover,
+.streamer4:hover,
+.streamer6:hover,
+.streamer8:hover {
+  transform: translateY(108px);
+}
+
+.streamers-container {
+  margin-top: 40px;
+}
+
+.developer {
+  font-size: 14pt;
+  margin-top: 240px;
+}
+
+.dev-link {
+  font-weight: 700;
+  color: white;
+}
+
+.dev-link:hover {
+  color: #1da1f2;
+}
+
+#alert-container {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#alert-reload {
+  display: inline-block;
+  background-color: white !important;
+  border: 2px solid red;
+  border-radius: 10px;
+  color: red;
+  padding: 12px 20px;
+  font-weight: 500;
+  filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.25));
+}
+
+.twitter-btn {
+  background-color: #1da1f2 !important;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+.twitter-btn:active {
+  background-color: #128ad4 !important;
+}
+
+.twitter-logo {
+  height: 16px;
+  width: auto;
+  transform: translateY(2px);
+  padding-right: 6px;
+}
+
+@media (max-width: 1200px) {
+  .emote {
+    height: 60px;
+    width: 60px;
+  }
+
+  .tooltip .tooltiptext {
+    margin-left: -28px;
+  }
+
+  .tooltip1,
+  .tooltip2,
+  .tooltip3 {
+    left: 60px;
+  }
+
+  .tooltip4,
+  .tooltip5,
+  .tooltip6 {
+    right: 120px;
+  }
+
+  .tooltip1 {
+    top: 100px;
+  }
+  .tooltip2 {
+    top: 250px;
+  }
+  .tooltip3 {
+    top: 400px;
+  }
+  .tooltip4 {
+    top: 100px;
+  }
+  .tooltip5 {
+    top: 250px;
+  }
+  .tooltip6 {
+    top: 400px;
+  }
+
+  #next-arrow {
+    position: static;
+    display: inline-block;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .streamers-container {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  .choice {
+    display: block;
+    width: 400px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 80px;
+    font-size: 32px;
+    margin: 12px 0;
+  }
+
+  .choice:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  #next-arrow {
+    height: 80px;
+    width: 80px;
+    display: block;
+    margin: 40px auto 0 auto;
+  }
+
+  .tooltip1,
+  .tooltip2,
+  .tooltip3 {
+    left: 60px;
+  }
+
+  .tooltip4,
+  .tooltip5,
+  .tooltip6 {
+    right: 140px;
+  }
+
+  .tooltip1 {
+    top: 550px;
+  }
+  .tooltip2 {
+    top: 675px;
+  }
+  .tooltip3 {
+    top: 800px;
+  }
+  .tooltip4 {
+    top: 550px;
+  }
+  .tooltip5 {
+    top: 675px;
+  }
+  .tooltip6 {
+    top: 800px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    position: absolute;
+    width: 100vw;
+  }
+
+  #logo {
+    width: 80%;
+  }
+
+  #landing,
+  #game {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #gameOver {
+    width: 90%;
+  }
+
+  .tweet-text,
+  .tweet-datetime {
+    font-size: 12pt;
+  }
+
+  .handle-hidden {
+    width: 120px;
+  }
+
+  .mc-container {
+    margin-top: 20px;
+  }
+
+  .mc-row {
+    display: block;
+  }
+
+  .streamers-container {
+    width: 320px;
+  }
+
+  .streamer {
+    height: 64px;
+    width: 64px;
+    margin: 4px;
+  }
+
+  .streamer1,
+  .streamer3,
+  .streamer5,
+  .streamer7 {
+    transform: translateY(0px);
+  }
+
+  .streamer2,
+  .streamer4,
+  .streamer6,
+  .streamer8 {
+    transform: translateY(0);
+  }
+
+  .streamlink2 .streamtext,
+  .streamlink4 .streamtext,
+  .streamlink6 .streamtext,
+  .streamlink8 .streamtext {
+    bottom: 100%;
+  }
+
+  .choice {
+    display: inline-block;
+    width: 40%;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 80px;
+    font-size: 14px;
+    margin: 4px 12px;
+  }
+
+  .choice:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  #next-arrow {
+    height: 40px;
+    width: 40px;
+    margin: 8px auto 0 auto;
+  }
+
+  .emotes-wrapper {
+    display: none;
+  }
+
+  #game-prompt {
+    font-size: 10pt;
+    margin: 12vh 0 12px 0;
+  }
+
+  #score {
+    display: none;
+  }
+
+  #score-mobile {
+    display: block;
+    position: fixed;
+    top: 28px;
+    left: 16px;
+    color: white;
+    font-size: 16pt;
+    font-weight: 700;
+  }
+
+  #high-score {
+    left: 16px;
+    font-size: 8pt;
+    font-weight: 500;
+  }
+
+  .developer {
+    margin-top: 80px;
+    font-size: 12pt;
+  }
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 1.2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.nav > .nav-links > div {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > div:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
