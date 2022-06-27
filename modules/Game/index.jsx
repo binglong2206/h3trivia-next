@@ -6,10 +6,11 @@ import MultipleChoice from "./MultipleChoice";
 import { useGameStore } from "../../state/useStore";
 import HandleAnswer from "../../hooks/handleAnswer";
 import HandleNext from "../../hooks/handleNext";
+import { Flex } from "@chakra-ui/react";
 
 export default function Game() {
   return (
-    <div>
+    <Flex maxW="7xl" flexDir="column" mt="-50px">
       <GameNavBar />
       {/* {console.log(Object.keys(stateQuestions).length)} */}
       <div id="game">
@@ -19,6 +20,6 @@ export default function Game() {
         </div>
         <MultipleChoice />
       </div>
-    </div>
+    </Flex>
   );
 }

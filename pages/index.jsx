@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "../styles/Home.module.css";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { useGameStore } from "../state/useStore";
 import Landing from "../modules/Home";
 import Game from "../modules/Game";
@@ -19,5 +19,18 @@ export default function View() {
     }
   };
 
-  return <div>{display()}</div>;
+  return (
+    <Flex
+      flexDir="column"
+      justifyContent="center"
+      alignItems="center"
+      backgroundImage="url(/img/gradientBackground.png)"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+      backgroundSize="cover"
+      height="100%"
+    >
+      {display()}
+    </Flex>
+  );
 }
