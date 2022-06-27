@@ -1,5 +1,6 @@
 import React from "react";
 import { useGameStore } from "../../state/useStore";
+import YouTube from "react-youtube";
 
 export default function QuestionAnswer() {
   const guessed = useGameStore((state) => state.guessed);
@@ -15,6 +16,10 @@ export default function QuestionAnswer() {
         <>
           <div>{question.desc}</div>
           <div>{question.img}</div>
+          <YouTube
+            videoId="Gjnup-PuquQ"
+            opts={{ playerVars: { autoplay: 1, start: 10 } }}
+          />
         </>
       );
 
@@ -22,15 +27,10 @@ export default function QuestionAnswer() {
       return (
         <>
           <div>{question.desc}</div>
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${question.vid}?start=30&autoplay=1&mute=1`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+          <YouTube
+            videoId="Gjnup-PuquQ"
+            opts={{ playerVars: { autoplay: 1, start: 50 } }}
+          />
         </>
       );
   };
