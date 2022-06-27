@@ -1,31 +1,23 @@
 import React from "react";
 import GameNavBar from "./GameNavBar";
+import PopUp from "./PopUp";
 import Prompt from "./Prompt";
-import QuestionAnswer from "./QuestionAnswer";
 import MultipleChoice from "./MultipleChoice";
 import { useGameStore } from "../../state/useStore";
 import HandleAnswer from "../../hooks/handleAnswer";
 import HandleNext from "../../hooks/handleNext";
 
 export default function Game() {
-  const score = useGameStore((state) => state.score);
-  const question = useGameStore((state) => state.question);
-  const { checkAnswer } = HandleAnswer();
-  const { handleNext } = HandleNext();
-
   return (
     <div>
-      <GameNavBar highScore={localStorage.getItem("topScore")} score={score} />
+      <GameNavBar />
       {/* {console.log(Object.keys(stateQuestions).length)} */}
       <div id="game">
-        <Prompt />
+        <PopUp />
         <div id="tweet-placeholder">
-          <QuestionAnswer />
+          <Prompt />
         </div>
-        <MultipleChoice
-          checkAnswer={(selected) => checkAnswer(selected, question.answer)}
-          nextArrow={handleNext}
-        />
+        <MultipleChoice />
       </div>
     </div>
   );

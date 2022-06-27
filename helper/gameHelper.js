@@ -22,21 +22,34 @@ export const getQuestionChoices = (rawQuestions) => {
       [choices[i], choices[randomIndex]] = [choices[randomIndex], choices[i]];
     }
 
-    return {key, question, questionData, choices}
+    const correctChoiceIndex = choices.indexOf(question.answer)
+
+    return {key, question, questionData, choices, correctChoiceIndex}
   };
 
 
-  export const revealButtonColor =(selected, answer)=>{
-     var choiceElems = document.querySelectorAll(".choice");
-    choiceElems.forEach((el) => {
-      el.classList.add("disabled");
-      if (el.innerHTML === answer) {
-        el.classList.add("choice-correct");
-        el.classList.remove("choice-default");
+  export const revealButtonColor =(selectedIndex, correctChoiceIndex)=>{ // Key iscorrect answer ID
+    const elements = document.querySelectorAll(".choice");
+    
+    elements.forEach((e) => {
+      let buttonId = parseInt(e.id[6]);
+      console.log(e)
+
+      if (buttonId === correctChoiceIndex) {
+        e.classList.add("button-correct");
       }
-      else if (el.innerHTML === selected && selected !== answer) {
-        el.classList.add("choice-wrong");
-        el.classList.remove("choice-default");
+      else if (buttonId === selectedIndex && selectedIndex !== correctChoiceIndex) {
+        e.classList.add("button-wrong");
       }
+    })
+  }
+
+
+  export const removeButtonColor =()=>{ // Key iscorrect answer ID
+    const elements = document.querySelectorAll(".choice");
+    
+    elements.forEach((e) => {
+      e.classList.remove("button-correct");
+      e.classList.remove("button-wrong")
     })
   }

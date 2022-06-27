@@ -1,37 +1,35 @@
-
+import db from './Firebase'
+import { doc, increment, setDoc, addDoc, collection } from "firebase/firestore"; 
+import { v4 as uuid }  from 'uuid'
+ 
+ 
  export const addNewPlayer = async () => {
-    const id = uuid()
+    const uid = uuid();
+
     try{
-      await setDoc(doc(db, 'Users', id), {merge:true});
-      localStorage.setItem('userId', id); 
-      console.log('donezo')
+      await setDoc(doc(db, 'users', uid), {});
+      localStorage.setItem('userId', uid);
+      console.log('New Player Added')
     } catch(e) {
-      console.error('cant add new user')
+      console.error('trouble adding new player', e)
     }
   }
 
-//  export const addAnswerToFirebase = async () => {
-//     try {
-//       await setDoc(doc(db, "tweetIds", this.state.tweetId), {
-//         [selected]: increment(1)
-//       }, {merge: true});
-//     } catch (e) {
-//       console.error("Error adding answer to firebase: ", e);
-//     }
-//   }
-
 export const addScoreToFirebase = async (score) => {
     try {
-      
       await setDoc(doc(db, "streaks", score.toString()), {
         count: increment(1)
       }, {merge: true});
-
-      await setDoc(doc(db, "Users", localStorage.getItem('userId')), {
-        highScore: localStorage.getItem('highScore'),
-        correct: localStorage.getItem('tweetsCorrect'), 
-        gamesPlayed: localStorage.getItem('gamesPlayed'),
+      
+      await setDoc(doc(db, "users", localStorage.getItem('userId')), {
+        topScore: localStorage.getItem('topScore'),
+        totalGames: localStorage.getItem('totalGames'),
+        totalCorrect: localStorage.getItem('totalCorrect'), 
+        totalRounds: localStorage.getItem('totalRounds'),
       }, {merge: true});
+      
+      (console.log('streaks count & user info updated'))
+      
     } catch (e) {
       console.error("Error adding score to firebase: ", e);
     }

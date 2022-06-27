@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.button-correct {
+  background-color: green !important;
+}
+
+.button-wrong {
+  background-color: red !important;
+}

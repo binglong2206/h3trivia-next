@@ -1,58 +1,76 @@
 import React from "react";
 import { useGameStore } from "../../state/useStore";
 
-export default function Prompt({}) {
+export default function QuestionAnswer() {
   const guessed = useGameStore((state) => state.guessed);
-  const correct = useGameStore((state) => state.correct);
+  const question = useGameStore((state) => state.question);
 
-  const displayPrompt = () => {
-    console.log("promptwokring");
-    if (!guessed) return "Question";
-    if (guessed && !correct) return "WRONG";
-    if (guessed && correct) return "CORRECT";
+  const displayQuestion = () => {
+    return <div>{question.text}</div>;
+  };
+
+  const displayAnswer = () => {
+    if (question.img)
+      return (
+        <>
+          <div>{question.desc}</div>
+          <div>{question.img}</div>
+        </>
+      );
+
+    if (question.vid)
+      return (
+        <>
+          <div>{question.desc}</div>
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${question.vid}?start=30&autoplay=1&mute=1`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </>
+      );
   };
 
   return (
-    <>
-      <h2 id="game-prompt">{displayPrompt()}</h2>
-    </>
+    <div className="tweet-card tweet-hidden">
+      {guessed ? displayAnswer() : displayQuestion()}
+    </div>
   );
 }
 
-// export class Prompt extends React.Component {
+// export class TweetHidden extends React.Component {
 //   constructor(props) {
 //       super(props);
-//       this.prompt1 = "Who made this tweet?"
-//       this.prompt2 = "Correct! Click the arrow for the next tweet."
-//       this.prompt3 = "Hold this L. Better luck next time."
-//       this.state = {
-//           prompt: "Who made this tweet?"
-//       }
 //   }
 
 //   componentDidUpdate() {
-//       if (!this.props.guessed && this.state.prompt != this.prompt1) {
-//           this.setState({
-//               prompt: this.prompt1
-//           })
-//       } else if ((this.props.guessed && this.props.correct) && this.state.prompt != this.prompt2) {
-//         this.setState({
-//             prompt: this.prompt2
-//         })
-//       } else if ((this.props.guessed && !this.props.correct) && this.state.prompt != this.prompt3) {
-//         this.setState({
-//             prompt: this.prompt3
-//         })
+//       if (!this.props.displayed) {
+//           document.querySelector(".tweet-hidden").classList.add("hide-visibility");
 //       }
+//       if (this.props.displayed) {
+//         document.querySelector(".tweet-hidden").classList.remove("hide-visibility");
+//     }
 //   }
 
 //   render() {
 //       return (
-//         <>
-//         <h2 id="game-prompt">{this.state.prompt}</h2>
-//         </>
+//         <div className="tweet-card tweet-hidden">
+//             <div className="tweet-container">
+//                 <span className="pfp-hidden"></span>
+//                 <div className="handle-container">
+//                     <span className="handle-hidden"></span>
+//                     <span className="handle-hidden"></span>
+//                 </div>
+//                 <p className="tweet-text">{this.props.text}</p>
+//                 <p className="tweet-datetime">{this.props.datetime}</p>
+//             </div>
+//         </div>
 //       );
 //   }
 // }
 
-// export default Prompt;
+// export default TweetHidden;

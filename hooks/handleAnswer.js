@@ -1,29 +1,30 @@
 import { useGameStore } from "../state/useStore"
 import { setLocalStorageEnd } from "../helper/setLocalStorage";
-import { revealButtonColor, getQuestionChoices } from "../helper/gameHelper";
+import { revealButtonColor } from "../helper/gameHelper";
+import { addScoreToFirebase } from "../service/useFirebase";
 
 
 
 export default function HandleAnswer() {
+  const correctChoiceIndex = useGameStore((state) => state.correctChoiceIndex);
+  const question = useGameStore((state)=> state.question)
   const score = useGameStore((state) => state.score);
   const addCorrect = useGameStore((state) => state.addCorrect);
   const endGame = useGameStore((state) => state.endGame);
 
-  const checkAnswer = (selected, answer) => {
-    console.log('checking')
-    if (selected === answer) {
+  const checkAnswer = (selectedIndex) => {
+    if (selectedIndex === correctChoiceIndex) {
       addCorrect();
       console.log('correct')
     } else {
       // Do all end game operations here incase user dont click arrow
-      // addScoreToFirebase(score);
+      addScoreToFirebase(score);
       endGame();
       setLocalStorageEnd(score);
-            console.log('wrong')
-
+      console.log('wrong')
     }
 
-    revealButtonColor(selected, answer);
+    revealButtonColor(selectedIndex, correctChoiceIndex);
     if (score > localStorage.getItem("topScore"))
       useGameStore.setState({ topScore: score });
   };

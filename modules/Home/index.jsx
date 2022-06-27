@@ -8,17 +8,19 @@ import {
 } from "../../service/useFirebase";
 import questions from "../../data/questionData";
 import { getQuestionChoices } from "../../helper/gameHelper";
+import { Button } from "@chakra-ui/react";
 
 const Landing = () => {
   const newGame = useGameStore((state) => state.startNewGame);
   const startNewRound = useGameStore((state) => state.startNewRound);
 
   const startNewGame = () => {
-    // if (!localStorage.getItem("userId")) addNewPlayer();
+    if (!localStorage.getItem("userId")) addNewPlayer();
+
     newGame(); // reset score and DB
-    const { key, question, questionData, choices } =
+    const { key, question, questionData, choices, correctChoiceIndex } =
       getQuestionChoices(questions);
-    startNewRound(key, question, questionData, choices);
+    startNewRound(key, question, questionData, choices, correctChoiceIndex);
   };
 
   return (

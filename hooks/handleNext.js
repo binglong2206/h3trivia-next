@@ -1,6 +1,6 @@
 import { useGameStore } from "../state/useStore"
 import { setLocalStorageEnd } from "../helper/setLocalStorage";
-import { revealButtonColor, getQuestionChoices } from "../helper/gameHelper";
+import {getQuestionChoices, removeButtonColor } from "../helper/gameHelper";
 
 
 
@@ -11,15 +11,9 @@ export default function HandleNext() {
 
   const handleNext = () => {
     if (correct) {
-      let choiceElems = document.querySelectorAll(".choice");
-      choiceElems.forEach((el) => {
-        el.classList.remove("disabled");
-        el.classList.remove("choice-correct");
-        el.classList.remove("choice-wrong");
-        el.classList.add("choice-default");
-      });
-      const { key, question, questionData, choices } = getQuestionChoices(stateQuestions);
-      startNewRound(key, question, questionData, choices);
+      removeButtonColor();
+      const { key, question, questionData, choices, correctChoiceIndex } = getQuestionChoices(stateQuestions);
+      startNewRound(key, question, questionData, choices, correctChoiceIndex);
     } else {
       useGameStore.setState({
         mode: "gameOver",

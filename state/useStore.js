@@ -14,13 +14,12 @@ export const useGameStore = create(set => ({ // Create is like a class that cont
   guessed: false,
   correct: false,
   score: 0,
-  topScore: 0,
-  prevTopScore: 0,
-  endState: "default",
   question: null,
   questionKey: null,
   questionData: questions,
   multipleChoices: [],
+  correctChoiceIndex: null,
+  choicesDisabled: false,
 
   startNewGame: () => set({
       mode: "game",
@@ -32,20 +31,24 @@ export const useGameStore = create(set => ({ // Create is like a class that cont
   addCorrect: ()=> set((state)=>({
     score: state.score + 1,
     correct: true,
-    guessed: true
+    guessed: true,
+    choicesDisabled: true
   })),
 
   endGame: ()=> set({
     correct: false,
-    guessed: true
+    guessed: true,
+    choicesDisabled: true
   }),
 
-  startNewRound: (key, question, questionData, choices ) => {set({
+  startNewRound: (key, question, questionData, choices, correctChoiceIndex) => {set({
     guessed: false,
     correct: false,
+    choicesDisabled: false,
     question: question,
     questionKey: key,
     choices: choices,
+    correctChoiceIndex: correctChoiceIndex,
     questionData: questionData
   })},
 

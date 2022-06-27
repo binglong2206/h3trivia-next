@@ -1,5 +1,6 @@
 const questionData = {
     1: {
+        key: 1,
         prompt: "Question 1",
         answer: "Ethan went to dennis and ate cake.",
         choice2: '1-1',
@@ -11,6 +12,7 @@ const questionData = {
 
     },
     2: {
+        key: 2,
         prompt: "Question 2",
         answer: "Correct Answer 2",
         choice2: '1-1',
@@ -22,29 +24,32 @@ const questionData = {
 
     },
     3: {
-        prompt: "Question 3",
-        answer: "Correct Answer 2",
+        key: 3,
+        prompt: "Question 1",
+        answer: "Ethan went to dennis and ate cake.",
         choice2: '1-1',
         choice3: '1-2',
         choice4: '1-3',
-        vid:"Gjnup-PuquQ",
-        desc: 'Second question descritpi0on',
-        text: "Second Question",
+        img:"THIS IS AN IMAGE",
+        desc: 'first question descritpi0on',
+        text: "First Question",
 
     },
     4: {
-        prompt: "Question 4",
-        answer: "Correct Answer 2",
+        key: 4,
+        prompt: "Question 1",
+        answer: "Ethan went to dennis and ate cake.",
         choice2: '1-1',
         choice3: '1-2',
         choice4: '1-3',
-        vid:"Gjnup-PuquQ",
-        desc: 'Second question descritpi0on',
-        text: "Second Question",
+        img:"THIS IS AN IMAGE",
+        desc: 'first question descritpi0on',
+        text: "First Question",
 
     },
     5: {
-        prompt: "Question 5",
+        key: 5,
+        prompt: "Question 1",
         answer: "Ethan went to dennis and ate cake.",
         choice2: '1-1',
         choice3: '1-2',
@@ -55,36 +60,15 @@ const questionData = {
 
     },
     6: {
-        prompt: "Question 6",
-        answer: "Correct Answer 2",
+        key: 6,
+        prompt: "Question 1",
+        answer: "Ethan went to dennis and ate cake.",
         choice2: '1-1',
         choice3: '1-2',
         choice4: '1-3',
-        vid:"Gjnup-PuquQ",
-        desc: 'Second question descritpi0on',
-        text: "Second Question",
-
-    },
-    7: {
-        prompt: "Question 7",
-        answer: "Correct Answer 2",
-        choice2: '1-1',
-        choice3: '1-2',
-        choice4: '1-3',
-        vid:"Gjnup-PuquQ",
-        desc: 'Second question descritpi0on',
-        text: "Second Question",
-
-    },
-    8: {
-        prompt: "Question 8",
-        answer: "Correct Answer 2",
-        choice2: '1-1',
-        choice3: '1-2',
-        choice4: '1-3',
-        vid:"Gjnup-PuquQ",
-        desc: 'Second question descritpi0on',
-        text: "Second Question",
+        img:"THIS IS AN IMAGE",
+        desc: 'first question descritpi0on',
+        text: "First Question",
 
     }
     // "1359779880485982208": {

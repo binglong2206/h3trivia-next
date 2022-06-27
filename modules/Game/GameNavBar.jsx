@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useGameStore, useLocalStore } from "../../state/useStore";
 
-const NavBar = ({ highScore, score }) => {
+const NavBar = () => {
+  const score = useGameStore((state) => state.score);
+  const topScore = useLocalStore((state) => state.topScore);
+
   return (
     <div className="nav">
       <div className="nav-header">
@@ -18,7 +22,7 @@ const NavBar = ({ highScore, score }) => {
 
       <div className="nav-links">
         <div>Score: {score}</div>
-        <div>Top Score: {highScore}</div>
+        <div>Top Score: {Math.max(score, topScore)}</div>
         {/* <div>Win Rate: {winRate}%</div> */}
       </div>
     </div>

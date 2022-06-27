@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGameStore, useLocalStore } from "../../state/useStore";
 import InitLocalStore from "../../state/InitLocalStore";
 
@@ -7,12 +7,25 @@ const NavBar = () => {
   const totalGames = useLocalStore((state) => state.totalGames);
   const totalCorrect = useLocalStore((state) => state.totalCorrect);
   const totalRounds = useLocalStore((state) => state.totalRounds);
-
   const winRate = ((totalCorrect / totalRounds) * 100).toFixed(1);
+
+  useEffect(() => {
+    useLocalStore.setState({
+      userId_h3trivia: localStorage.getItem("userId_h3trivia"),
+    });
+    useLocalStore.setState({ topScore: localStorage.getItem("topScore") });
+    useLocalStore.setState({ totalGames: localStorage.getItem("totalGames") });
+    useLocalStore.setState({
+      totalCorrect: localStorage.getItem("totalCorrect"),
+    });
+    useLocalStore.setState({
+      totalRounds: localStorage.getItem("totalRounds"),
+    });
+  });
 
   return (
     <div className="nav">
-      <InitLocalStore />
+      {/* <InitLocalStore /> */}
       <div className="nav-header">
         <div className="nav-title">
           H3Trivia<span className="textGradient">.com</span>
@@ -25,6 +38,9 @@ const NavBar = () => {
           <span></span>
         </label>
       </div>
+      {/* <button onClick={() => useLocalStore.setState({ topScore: 7777 })}>
+        TEST
+      </button> */}
 
       <div className="nav-links">
         <div>Top Win Streaks: {topScore ? `${topScore} rounds` : null}</div>
