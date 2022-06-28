@@ -24,27 +24,28 @@ const Landing = () => {
   };
 
   return (
-    <Flex maxW="7xl" flexDir="column" mt="-50px">
-      <NavBar />
-      <Box id="mainTitle" textAlign="center">
-        H3 Trivia
-      </Box>
-      <Heading color="white" textAlign="center">
-        Guess who tweeted what. Prove that you are your
-        favossssssssssssssssssssssssssrite streamer’s biggest superfan.
-      </Heading>
-      <Button
-        className="learn-more"
-        onClick={startNewGame}
-        colorScheme="blackAlpha"
-        w="xs"
-        margin="auto"
-      >
-        START GAME
-      </Button>
-      <Text color="white" textAlign="center">
-        Built by json
-      </Text>
+    <Flex w="100%" h="100%" alignItems="center" justifyContent="center">
+      <Flex w="7xl" flexDir="column" alignItems="center">
+        <NavBar />
+        <Box id="mainTitle" textAlign="center">
+          H3 Trivia
+        </Box>
+        <Heading color="white" textAlign="center">
+          Guess who tweeted what. Prove that you are your
+          favossssssssssssssssssssssssssrite streamer’s biggest superfan.
+        </Heading>
+        <Button
+          className="learn-more"
+          onClick={startNewGame}
+          colorScheme="blackAlpha"
+          w="xs"
+        >
+          START GAME
+        </Button>
+        <Text color="white" textAlign="center">
+          Built by json
+        </Text>
+      </Flex>
     </Flex>
   );
 };

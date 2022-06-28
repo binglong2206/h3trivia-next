@@ -20,17 +20,19 @@ export default function View() {
   };
 
   return (
-    <Flex
-      flexDir="column"
-      justifyContent="center"
-      alignItems="center"
+    <Box
+      // flexDir="column"
+      // justifyContent="center"
+      // alignItems="center"
       backgroundImage="url(/img/gradientBackground.png)"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      height="100%"
+      h="100%"
+      w="100%"
+      overflow="hidden"
     >
       {display()}
-    </Flex>
+    </Box>
   );
 }

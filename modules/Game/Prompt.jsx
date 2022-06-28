@@ -1,76 +1,53 @@
 import React from "react";
 import { useGameStore } from "../../state/useStore";
 import YouTube from "react-youtube";
+import { Heading, Box, Text, Flex, Image } from "@chakra-ui/react";
 
 export default function QuestionAnswer() {
   const guessed = useGameStore((state) => state.guessed);
   const question = useGameStore((state) => state.question);
+  const correct = useGameStore((state) => state.correct);
 
   const displayQuestion = () => {
-    return <div>{question.text}</div>;
+    return <Heading color="white">{question.text}</Heading>;
+  };
+
+  const displayPrompt = () => {
+    if (!guessed) return "Question:";
+    if (guessed && !correct) return "WRONG";
+    if (guessed && correct) return "CORRECT";
   };
 
   const displayAnswer = () => {
     if (question.img)
       return (
-        <>
-          <div>{question.desc}</div>
-          <div>{question.img}</div>
-          <YouTube
-            videoId="Gjnup-PuquQ"
-            opts={{ playerVars: { autoplay: 1, start: 10 } }}
+        <Box>
+          <Heading color="white">{displayPrompt()}</Heading>
+          <Text color="white">{question.desc}</Text>
+          <Image
+            src={`/img/${question.img}`}
+            boxSize={{ base: "50px", xl: "100px", "2xl": "300px" }}
+            alt="answerImage"
           />
-        </>
+        </Box>
       );
 
     if (question.vid)
       return (
-        <>
-          <div>{question.desc}</div>
+        <Box>
+          <Heading color="white">{displayPrompt()}</Heading>
+          <Box>{question.desc}</Box>
           <YouTube
             videoId="Gjnup-PuquQ"
             opts={{ playerVars: { autoplay: 1, start: 50 } }}
           />
-        </>
+        </Box>
       );
   };
 
   return (
-    <div className="tweet-card tweet-hidden">
+    <Flex flexDir="column" alignItems="center" justifyContent="center">
       {guessed ? displayAnswer() : displayQuestion()}
-    </div>
+    </Flex>
   );
 }
-
-// export class TweetHidden extends React.Component {
-//   constructor(props) {
-//       super(props);
-//   }
-
-//   componentDidUpdate() {
-//       if (!this.props.displayed) {
-//           document.querySelector(".tweet-hidden").classList.add("hide-visibility");
-//       }
-//       if (this.props.displayed) {
-//         document.querySelector(".tweet-hidden").classList.remove("hide-visibility");
-//     }
-//   }
-
-//   render() {
-//       return (
-//         <div className="tweet-card tweet-hidden">
-//             <div className="tweet-container">
-//                 <span className="pfp-hidden"></span>
-//                 <div className="handle-container">
-//                     <span className="handle-hidden"></span>
-//                     <span className="handle-hidden"></span>
-//                 </div>
-//                 <p className="tweet-text">{this.props.text}</p>
-//                 <p className="tweet-datetime">{this.props.datetime}</p>
-//             </div>
-//         </div>
-//       );
-//   }
-// }
-
-// export default TweetHidden;

@@ -6,20 +6,18 @@ import MultipleChoice from "./MultipleChoice";
 import { useGameStore } from "../../state/useStore";
 import HandleAnswer from "../../hooks/handleAnswer";
 import HandleNext from "../../hooks/handleNext";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Button, Box, Grid, GridItem } from "@chakra-ui/react";
 
 export default function Game() {
   return (
-    <Flex maxW="7xl" flexDir="column" mt="-50px">
+    <Flex h="100%" bgColor="green" flexDir="column" justifyContent="center">
       <GameNavBar />
-      {/* {console.log(Object.keys(stateQuestions).length)} */}
-      <div id="game">
-        <PopUp />
-        <div id="tweet-placeholder">
-          <Prompt />
-        </div>
+      <Box bgColor="red">
+        <Prompt />
+      </Box>
+      <Flex bgColor="blue">
         <MultipleChoice />
-      </div>
+      </Flex>
     </Flex>
   );
 }

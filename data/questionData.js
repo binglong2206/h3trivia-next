@@ -6,7 +6,7 @@ const questionData = {
         choice2: '1-1',
         choice3: '1-2',
         choice4: '1-3',
-        img:"THIS IS AN IMAGE",
+        img:"gradient2.jpg",
         desc: 'first question descritpi0on',
         text: "First Question",
 
@@ -30,7 +30,7 @@ const questionData = {
         choice2: '1-1',
         choice3: '1-2',
         choice4: '1-3',
-        img:"THIS IS AN IMAGE",
+        img:"gradient2.jpg",
         desc: 'first question descritpi0on',
         text: "First Question",
 
