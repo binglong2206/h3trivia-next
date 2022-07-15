@@ -39,7 +39,11 @@ export default function QuestionAnswer() {
           <Box>{question.desc}</Box>
           <YouTube
             videoId="Gjnup-PuquQ"
-            opts={{ playerVars: { autoplay: 1, start: 50 } }}
+            opts={{
+              height: "200",
+              width: "300",
+              playerVars: { autoplay: 1, start: 50 },
+            }}
           />
         </Box>
       );
